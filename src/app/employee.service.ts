@@ -27,4 +27,10 @@ export class EmployeeService {
   public deleteEmployee(employeeId: number): Observable<void> {
     return this.http.delete<void>(`${this.apiServerUrl}/employee/delete/${employeeId}`)
   }
+  getCurrentDate(employee: Employee,id: number): Observable<Employee>{
+    return this.http.put<Employee>(`${this.apiServerUrl}/employee/update/${id}`,employee)
+  }
+  getData(employeeId: number): Observable<any>{
+    return this.http.get<any>(`${this.apiServerUrl}/employee/find/${employeeId}`)
+  }
 }
